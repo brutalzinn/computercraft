@@ -1,104 +1,28 @@
-os.loadAPI("nav")
-rednet.open("right")
-messaging = false
+local mystring = "BB"
+local chars = { }
 
-
-local function Pickup()
-        NAVIGATOR.TurnRight(NAVIGATOR.GetDirectionINT("west"))  --facing +z
-        turtle.suck(64)
+function checkfuel()
+turtle.select(1)
+if turtle.refuel(0) then
+local halfStack = math.ceil(turtle.getItemCount(i)/2)
+end
 end
 
-local function Drop()     
-        NAVIGATOR.TurnRight(NAVIGATOR.GetDirectionINT("west"))  --facing +z
-        turtle.drop(64)
+for i = 1, #mystring do
+chars[#chars + 1] = mystring:sub(i,i)
+vetor = chars[#chars]
+if vet == "L" then
+turtle.turnLeft()
 end
-
-local function MoveToSlot(slot)
-        x, y, z, direction = NAVIGATOR.GetPosition()
-  
-        dist = math.abs(slot - z)
-  
-        --print("Moveto " .. slot .. " from " .. z .. " dist: " .. dist)
-        if(slot > z) then
-                --print("N")
-                NAVIGATOR.TurnRight(0)
-                NAVIGATOR.Forward(dist)
-        elseif(slot < z) then
-                --print("S")
-                NAVIGATOR.TurnRight(2)
-                NAVIGATOR.Forward(dist)
-        end
+if vet == "R" then
+turtle.turnRight()
 end
-
-local function Dump()
-        detail = turtle.getItemDetail(1)
-  
-        if(detail) then
-                MoveToSlot(-8)
-                Drop()
-        end
+if vet == "F" then
+checkrefuel()
+turtle.forward()
 end
-
-local function DoStack(stack)
-        Pickup()
-        Dump()
-        MoveToSlot(stack)
-  
-        NAVIGATOR.Up(1)
-        Pickup()
-        NAVIGATOR.Down(1)
-        Dump()
-        MoveToSlot(stack)
-  
-        NAVIGATOR.Down(1)
-        Pickup()
-        NAVIGATOR.Up(1)
-        Dump()
-        MoveToSlot(stack)
+if vet == "B" then
+checkfuel()
+turtle.back()
 end
-
--- Reset Position
--- Initialize Navigator
-if (NAVIGATOR.InitializeNavigator()) then
-        --print("Navigator file found, resetting position.")
-  
-        x, y, z, direction = NAVIGATOR.GetPosition()
-        -- First Y:
-        if (y > 0) then
-                --print("Moving down.")
-                NAVIGATOR.Down(y)
-        elseif (y < 0) then
-                --print("Moving up.")
-                NAVIGATOR.Up(-y)
-        else
-                --print("Vertical is fine.")
-        end
-  
-        -- Now Z:
-        if(z > 0) then
-                --print("Moving north.")
-                -- Turn to positive z and move.
-                NAVIGATOR.TurnRight(2)  --facing -z  
-        elseif(z < 0) then
-                --print("Moving south.")
-                -- Turn to negative z and move.  
-                NAVIGATOR.TurnRight(0)  --facing +z  
-        end
-                NAVIGATOR.Forward(math.abs(z))
-  
-        -- X is not needed as the unit only moves in one line.
-else
-        --print("Resetting navigator")
-        NAVIGATOR.SetPosition(0, 0, 0, 0)
-end
-
-while true do
-        DoStack(0)
-        os.sleep(1)
-  
-        DoStack(-3)
-        os.sleep(1)
-  
-        DoStack(-6)
-        os.sleep(1)
 end
