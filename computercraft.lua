@@ -109,7 +109,6 @@ startMove()
 turtle.drop()
 backHome()
  os.sleep(3)
-
 end
 end
 end
