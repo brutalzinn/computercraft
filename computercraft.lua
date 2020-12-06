@@ -90,7 +90,7 @@ function selectItem(name)
 function init()
 rednet.open("right")
 local sender, message, protocol = rednet.receive()
-for 1, tonumber(message) do
+for i=1, tonumber(message) do
 selectEmptySlot()
 WaitForge()
 startMove()
