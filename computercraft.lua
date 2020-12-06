@@ -1,4 +1,5 @@
 local mystring = "RFFF"
+BBBRR
 local chars = { }
 local backchar = { }
 local waiting = false
@@ -41,20 +42,13 @@ backchar[#backchar + 1] = backstring:sub(i,i)
 vetor = backchar[#backchar]
 if vetor == "L" then
 checkfuel()
-turtle.turnLeft()
+turtle.turnRight()
 
-if i == 1 then
-checkfuel()
-turtle.turnLeft()
-end
 end
 if vetor == "R" then
 checkfuel()
-turtle.turnRight()
+turtle.turnLeft()
 
-if i == 1 then
-turtle.turnRight()
-end
 end
 
 if vetor == "F" then
