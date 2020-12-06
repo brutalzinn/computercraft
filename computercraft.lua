@@ -13,10 +13,12 @@ for i = 1, #mystring do
 chars[#chars + 1] = mystring:sub(i,i)
 vetor = chars[#chars]
 if vet == "L" then
+checkfuel()
 turtle.turnLeft()
 end
 
 if vet == "R" then
+checkfuel()
 turtle.turnRight()
 end
 
@@ -37,14 +39,16 @@ local backstring = string.reverse(mystring)
 for i = 1, #backstring do
 backchar[#backchar + 1] = backstring:sub(i,i)
 if vet == "L" then
+checkfuel()
 turtle.turnLeft()
 
 if i == 1 then
+checkfuel()
 turtle.turnLeft()
 end
 end
 if vet == "R" then
-
+checkfuel()
 turtle.turnRight()
 
 if i == 1 then
@@ -53,6 +57,7 @@ end
 end
 
 if vet == "F" then
+
 checkfuel()
 turtle.back()
 
