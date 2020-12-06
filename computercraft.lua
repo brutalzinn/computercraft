@@ -102,16 +102,15 @@ function init()
 rednet.open("right")
 while true do
 local sender, message, protocol = rednet.receive()
-print("Recebido" .. message)
 for i=1, tonumber(message) do
-if selectEmptySlot() then
 waiting = true
+if selectEmptySlot() then
 WaitForge()
 end
 startMove()
 turtle.drop()
 backHome()
-sleep(1000)
+sleep(50)
 end
 end
 end
