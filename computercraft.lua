@@ -1,12 +1,12 @@
 local mystring = "RFFF"
-local rechargeBase = "R"
+local rechargeBase = "RR"
 local chars = { }
 local backchar = { }
 local rechar = { }
 local waiting = false
-function rechargeBase()
-for i = 1, #rechar do
-rechar[#rechar + 1] = rechar:sub(i,i)
+function recharge()
+for i = 1, #rechargeBase do
+rechar[#rechar + 1] = rechargeBase:sub(i,i)
 vetor = rechar[#rechar]
 if vetor == "L" then
 checkfuel()
@@ -37,7 +37,7 @@ if turtle.getFuelLevel() ~= "unlimited" and turtle.getFuelLevel() < 1 then
 	if(turtle.getItemCount(1) > 10) then
 	turtle.refuel()
 	else
-	rechargeBase()
+	recharge()
 	end
 end
 end
