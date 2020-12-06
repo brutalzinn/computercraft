@@ -24,7 +24,7 @@ function checkfuel()
         end
       end
     end
-    os.sleep(someDelayTime)
+    os.sleep(1)
   end
 end
 function startMove()
@@ -105,7 +105,7 @@ function selectItem(name)
   end
    return false
  end
- function ChargeBase()
+function ChargeBase()
 for i = 1, #baseString do
 rechar[#rechar + 1] = baseString:sub(i,i)
 vetor = rechar[#rechar]
