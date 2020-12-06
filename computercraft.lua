@@ -148,6 +148,7 @@ while true do
 local sender, message, protocol = rednet.receive()
 
 for i=1, tonumber(message) do 
+print("iniciando processo do forger.. de ".. message)
 checkfuel()
 WaitForge()
 startMove()
