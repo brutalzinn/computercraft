@@ -97,8 +97,7 @@ repeat
 turtle.suck()
  until turtle.suck() == true
 
- 
- end
+
  end
 function init()
 
