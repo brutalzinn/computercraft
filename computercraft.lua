@@ -1,5 +1,5 @@
 local mystring = "RFFF"
-local baseString = "RR"
+local baseString = "RRR"
 local chars = { }
 local backchar = { }
 local rechar = { }
@@ -9,22 +9,22 @@ for i = 1, #baseString do
 rechar[#rechar + 1] = baseString:sub(i,i)
 vetor = rechar[#rechar]
 if vetor == "L" then
-checkfuel()
+
 turtle.turnLeft()
 end
 
 if vetor == "R" then
-checkfuel()
+
 turtle.turnRight()
 end
 
 if vetor == "F" then
-checkfuel()
+
 turtle.forward()
 end
 
 if vetor == "B" then
-checkfuel()
+
 turtle.back()
 end
 
@@ -33,8 +33,9 @@ end
 function checkfuel()
 turtle.select(1)
 	if turtle.getItemCount(1) > 10 then
-	turtle.refuel()
+	turtle.refuel(1)
 	else
+	turtle.refuel(4)
 ChargeBase()
 	end
 
