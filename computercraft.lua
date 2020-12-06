@@ -92,12 +92,13 @@ function selectItem(name)
   end
    return false -- couldn't find empty space
  end
+ 
 function WaitForge()
 repeat
 turtle.suck()
  until turtle.suck() == true
  end
- end
+ 
 function init()
 rednet.open("right")
 while true do
