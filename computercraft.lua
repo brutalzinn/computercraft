@@ -1,11 +1,44 @@
 local mystring = "RFFF"
+local rechargeBase = "R"
 local chars = { }
 local backchar = { }
+local rechar = { }
 local waiting = false
+function rechargeBase()
+for i = 1, #rechar do
+rechar[#rechar + 1] = rechar:sub(i,i)
+vetor = rechar[#rechar]
+if vetor == "L" then
+checkfuel()
+turtle.turnLeft()
+end
+
+if vetor == "R" then
+checkfuel()
+turtle.turnRight()
+end
+
+if vetor == "F" then
+checkfuel()
+turtle.forward()
+end
+
+if vetor == "B" then
+checkfuel()
+turtle.back()
+end
+
+end
+
+end
 function checkfuel()
 turtle.select(1)
-if turtle.refuel(0) then
-turtle.refuel(1)
+if turtle.getFuelLevel() ~= "unlimited" and turtle.getFuelLevel() < 1 then
+	if(turtle.getItemCount(1) > 10)
+	turtle.refuel()
+	else
+	rechargeBase()
+	end
 end
 end
 function startMove()
