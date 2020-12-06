@@ -1,5 +1,4 @@
 local mystring = "RFFF"
-BBBRR
 local chars = { }
 local backchar = { }
 local waiting = false
