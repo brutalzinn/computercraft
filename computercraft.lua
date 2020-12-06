@@ -34,7 +34,7 @@ end
 function checkfuel()
 turtle.select(1)
 if turtle.getFuelLevel() ~= "unlimited" and turtle.getFuelLevel() < 1 then
-	if(turtle.getItemCount(1) > 10)
+	if(turtle.getItemCount(1) > 10) then
 	turtle.refuel()
 	else
 	rechargeBase()
