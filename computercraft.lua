@@ -4,41 +4,28 @@ local chars = { }
 local backchar = { }
 local rechar = { }
 local waiting = false
-function ChargeBase()
-for i = 1, #baseString do
-rechar[#rechar + 1] = baseString:sub(i,i)
-vetor = rechar[#rechar]
-if vetor == "L" then
 
-turtle.turnLeft()
-end
-
-if vetor == "R" then
-
-turtle.turnRight()
-end
-
-if vetor == "F" then
-
-turtle.forward()
-end
-
-if vetor == "B" then
-
-turtle.back()
-end
-
-end
+function checkIfFuel()
+  return turtle.refuel(0)
 end
 function checkfuel()
-turtle.select(1)
-	if turtle.getItemCount(1) > 10 then
-	turtle.refuel(1)
-	else
-	turtle.refuel(4)
-ChargeBase()
-	end
-
+ local fuelLimit = turtle.getFuelLimit()
+  while true do
+    if turtle.getFuelLevel() < fuelLimit / 4 then
+      -- if the fuel level is less than a quarter of a tank...
+      -- find an item that we can use as fuel
+      for i = 1, 16 do
+        -- for every slot in the inventory, do...
+        turtle.select(i)
+        if checkIfFuel() then
+          -- if inventory[i] is a fuel, then...
+          turtle.refuel()
+          -- refuel by consuming the whole stack
+        end
+      end
+    end
+    os.sleep(someDelayTime)
+  end
 end
 function startMove()
 for i = 1, #mystring do
@@ -118,6 +105,40 @@ function selectItem(name)
   end
    return false
  end
+ function ChargeBase()
+for i = 1, #baseString do
+rechar[#rechar + 1] = baseString:sub(i,i)
+vetor = rechar[#rechar]
+if vetor == "L" then
+checkfuel()
+turtle.turnLeft()
+end
+
+if vetor == "R" then
+checkfuel()
+turtle.turnRight()
+end
+
+if vetor == "F" then
+checkfuel()
+turtle.forward()
+end
+
+if vetor == "B" then
+checkfuel()
+turtle.back()
+end
+
+end
+end
+function NeedChargeBase()
+
+if turtle.getItemCount(1) == 0 then
+ChargeBase()
+end
+
+
+end
 function WaitForge()
 repeat
 turtle.suck()
@@ -133,8 +154,11 @@ startMove()
 selectItem("Cobalt Sharpening Kit")
 turtle.drop()
 backHome()
+NeedChargeBase()
  os.sleep(3)
 end
 end
 end
+
+
 init()
