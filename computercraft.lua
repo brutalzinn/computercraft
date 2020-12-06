@@ -1,21 +1,12 @@
 local mystring = "RFFF"
-local rechargeBase = "RR"
+local baseString = "RR"
 local chars = { }
 local backchar = { }
 local rechar = { }
 local waiting = false
-function checkfuel()
-turtle.select(1)
-	if turtle.getItemCount(1) > 10 then
-	turtle.refuel()
-	else
-	recharge()
-	end
-
-end
-function recharge()
-for i = 1, #rechargeBase do
-rechar[#rechar + 1] = rechargeBase:sub(i,i)
+function ChargeBase()
+for i = 1, #baseString do
+rechar[#rechar + 1] = baseString:sub(i,i)
 vetor = rechar[#rechar]
 if vetor == "L" then
 checkfuel()
@@ -38,9 +29,16 @@ turtle.back()
 end
 
 end
+end
+function checkfuel()
+turtle.select(1)
+	if turtle.getItemCount(1) > 10 then
+	turtle.refuel()
+	else
+ChargeBase()
+	end
 
 end
-
 function startMove()
 for i = 1, #mystring do
 chars[#chars + 1] = mystring:sub(i,i)
