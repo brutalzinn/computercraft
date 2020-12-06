@@ -19,7 +19,7 @@ if vet == "R" then
 turtle.turnRight()
 end
 if vet == "F" then
-checkrefuel()
+checkfuel()
 turtle.forward()
 end
 if vet == "B" then
