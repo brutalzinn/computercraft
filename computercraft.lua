@@ -98,7 +98,9 @@ function selectItem(name)
  
  end
 function init()
+
 rednet.open("right")
+while true do
 local sender, message, protocol = rednet.receive()
 for i=1, tonumber(message) do
 selectEmptySlot()
@@ -106,7 +108,8 @@ WaitForge()
 startMove()
 turtle.drop()
 backHome()
-sleep(0.1)
+sleep(1000)
+end
 end
 end
 init()
