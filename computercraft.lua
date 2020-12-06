@@ -5,7 +5,7 @@ local waiting = false
 function checkfuel()
 turtle.select(1)
 if turtle.refuel(0) then
-local halfStack = math.ceil(turtle.getItemCount(i)/2)
+turtle.refuel(1)
 end
 end
 function startMove()
