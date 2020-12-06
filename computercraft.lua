@@ -45,7 +45,7 @@ turtle.turnRight()
 end
 end
 if vet == "F" then
-checkrefuel()
+checkfuel()
 turtle.back()
 
 end
@@ -99,3 +99,4 @@ backHome()
 sleep(0.1)
 end
 end
+init()
