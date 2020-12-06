@@ -105,6 +105,7 @@ local sender, message, protocol = rednet.receive()
 for i=1, tonumber(message) do
 WaitForge()
 startMove()
+selectItem("Cobalt Sharpening Kit")
 turtle.drop()
 backHome()
  os.sleep(3)
