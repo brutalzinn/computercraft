@@ -96,7 +96,7 @@ function selectItem(name)
 repeat
 turtle.suck()
  until turtle.suck() == true
- waiting = false;
+
  
  end
  end
@@ -106,11 +106,7 @@ rednet.open("right")
 while true do
 local sender, message, protocol = rednet.receive()
 for i=1, tonumber(message) do
-
-if selectEmptySlot() then
-waiting = true
 WaitForge()
-end
 startMove()
 turtle.drop()
 backHome()
