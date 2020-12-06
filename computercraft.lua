@@ -32,22 +32,22 @@ for i = 1, #mystring do
 chars[#chars + 1] = mystring:sub(i,i)
 vetor = chars[#chars]
 if vetor == "L" then
-checkfuel()
+
 turtle.turnLeft()
 end
 
 if vetor == "R" then
-checkfuel()
+
 turtle.turnRight()
 end
 
 if vetor == "F" then
-checkfuel()
+
 turtle.forward()
 end
 
 if vetor == "B" then
-checkfuel()
+
 turtle.back()
 end
 
@@ -59,24 +59,24 @@ for i = 1, #backstring do
 backchar[#backchar + 1] = backstring:sub(i,i)
 vetor = backchar[#backchar]
 if vetor == "L" then
-checkfuel()
+
 turtle.turnRight()
 
 end
 if vetor == "R" then
-checkfuel()
+
 turtle.turnLeft()
 
 end
 
 if vetor == "F" then
 
-checkfuel()
+
 turtle.back()
 
 end
 if vetor == "B" then
-checkfuel()
+
 turtle.forward()
 end
 
@@ -110,22 +110,22 @@ for i = 1, #baseString do
 rechar[#rechar + 1] = baseString:sub(i,i)
 vetor = rechar[#rechar]
 if vetor == "L" then
-checkfuel()
+
 turtle.turnLeft()
 end
 
 if vetor == "R" then
-checkfuel()
+
 turtle.turnRight()
 end
 
 if vetor == "F" then
-checkfuel()
+
 turtle.forward()
 end
 
 if vetor == "B" then
-checkfuel()
+
 turtle.back()
 end
 
@@ -148,7 +148,8 @@ function init()
 rednet.open("right")
 while true do
 local sender, message, protocol = rednet.receive()
-for i=1, tonumber(message) do
+for i=1, tonumber(message) do 
+checkfuel()
 WaitForge()
 startMove()
 selectItem("Cobalt Sharpening Kit")
