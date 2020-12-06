@@ -132,12 +132,9 @@ end
 end
 end
 function NeedChargeBase()
-
-if turtle.getItemCount(1) == 0 then
+    if turtle.getFuelLevel() < 10 then
 ChargeBase()
-end
-
-
+turtle.suck()
 end
 function WaitForge()
 repeat
@@ -148,6 +145,7 @@ function init()
 rednet.open("right")
 while true do
 local sender, message, protocol = rednet.receive()
+
 for i=1, tonumber(message) do 
 checkfuel()
 WaitForge()
