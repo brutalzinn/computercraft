@@ -109,8 +109,9 @@ rednet.open("right")
 while true do
 local sender, message, protocol = rednet.receive()
 for i=1, tonumber(message) do
-waiting = true
+
 if selectEmptySlot() then
+waiting = true
 WaitForge()
 end
 startMove()
