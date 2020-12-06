@@ -97,6 +97,7 @@ repeat
 turtle.suck()
  until turtle.suck() == true
  end
+ end
 function init()
 rednet.open("right")
 while true do
@@ -108,6 +109,7 @@ turtle.drop()
 backHome()
  os.sleep(3)
 
+end
 end
 end
 init()
