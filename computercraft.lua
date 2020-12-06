@@ -99,6 +99,7 @@ function selectItem(name)
  waiting = false;
  break;
  end
+ os.sleep(3)
  end
  
  end
