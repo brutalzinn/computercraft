@@ -136,6 +136,7 @@ function NeedChargeBase()
 ChargeBase()
 turtle.suck()
 end
+end
 function WaitForge()
 repeat
 turtle.suck()
