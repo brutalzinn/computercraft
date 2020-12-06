@@ -10,7 +10,7 @@ function checkIfFuel()
 end
 function checkfuel()
  local fuelLimit = turtle.getFuelLimit()
-  while true do
+
     if turtle.getFuelLevel() < fuelLimit / 4 then
       -- if the fuel level is less than a quarter of a tank...
       -- find an item that we can use as fuel
@@ -25,7 +25,7 @@ function checkfuel()
       end
     end
     os.sleep(1)
-  end
+ 
 end
 function startMove()
 for i = 1, #mystring do
