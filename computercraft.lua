@@ -91,18 +91,15 @@ function selectItem(name)
        return true
      end
   end
-   return false -- couldn't find empty space
+   return false
  end
- 
 function WaitForge()
 repeat
 turtle.suck()
  until turtle.suck() == true
  end
- end
- 
 function init()
-rednet.open("right")
+rednet.open("left")
 while true do
 local sender, message, protocol = rednet.receive()
 for i=1, tonumber(message) do
