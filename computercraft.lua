@@ -99,7 +99,7 @@ turtle.suck()
  until turtle.suck() == true
  end
 function init()
-rednet.open("left")
+rednet.open("right")
 while true do
 local sender, message, protocol = rednet.receive()
 for i=1, tonumber(message) do
