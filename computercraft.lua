@@ -93,15 +93,12 @@ function selectItem(name)
    return false -- couldn't find empty space
  end
  function WaitForge()
- while waiting do
- 
- if turtle.suck() then
+repeat
+turtle.suck()
+ until turtle.suck() == true
  waiting = false;
- break;
- end
- os.sleep(3)
- end
  
+ end
  end
 function init()
 
