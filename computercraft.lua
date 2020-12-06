@@ -15,17 +15,21 @@ vetor = chars[#chars]
 if vet == "L" then
 turtle.turnLeft()
 end
+
 if vet == "R" then
 turtle.turnRight()
 end
+
 if vet == "F" then
 checkfuel()
 turtle.forward()
 end
+
 if vet == "B" then
 checkfuel()
 turtle.back()
 end
+
 end
 end
 function backHome()
@@ -34,16 +38,20 @@ for i = 1, #backstring do
 backchar[#backchar + 1] = backstring:sub(i,i)
 if vet == "L" then
 turtle.turnLeft()
+
 if i == 1 then
 turtle.turnLeft()
 end
 end
 if vet == "R" then
+
 turtle.turnRight()
+
 if i == 1 then
 turtle.turnRight()
 end
 end
+
 if vet == "F" then
 checkfuel()
 turtle.back()
@@ -52,6 +60,8 @@ end
 if vet == "B" then
 checkfuel()
 turtle.forward()
+end
+
 end
 end
 function selectItem(name)
