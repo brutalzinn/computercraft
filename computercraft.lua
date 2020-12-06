@@ -12,22 +12,22 @@ function startMove()
 for i = 1, #mystring do
 chars[#chars + 1] = mystring:sub(i,i)
 vetor = chars[#chars]
-if vet == "L" then
+if vetor == "L" then
 checkfuel()
 turtle.turnLeft()
 end
 
-if vet == "R" then
+if vetor == "R" then
 checkfuel()
 turtle.turnRight()
 end
 
-if vet == "F" then
+if vetor == "F" then
 checkfuel()
 turtle.forward()
 end
 
-if vet == "B" then
+if vetor == "B" then
 checkfuel()
 turtle.back()
 end
@@ -38,7 +38,8 @@ function backHome()
 local backstring = string.reverse(mystring)
 for i = 1, #backstring do
 backchar[#backchar + 1] = backstring:sub(i,i)
-if vet == "L" then
+vetor = backchar[#backchar]
+if vetor == "L" then
 checkfuel()
 turtle.turnLeft()
 
@@ -47,7 +48,7 @@ checkfuel()
 turtle.turnLeft()
 end
 end
-if vet == "R" then
+if vetor == "R" then
 checkfuel()
 turtle.turnRight()
 
@@ -56,13 +57,13 @@ turtle.turnRight()
 end
 end
 
-if vet == "F" then
+if vetor == "F" then
 
 checkfuel()
 turtle.back()
 
 end
-if vet == "B" then
+if vetor == "B" then
 checkfuel()
 turtle.forward()
 end
@@ -97,6 +98,7 @@ function WaitForge()
 repeat
 turtle.suck()
  until turtle.suck() == true
+ end
  end
  
 function init()
